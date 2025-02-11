@@ -80,23 +80,6 @@
           "defaultValue": 1
         },
         {
-          "title": "Robot",
-          "description": "The robot you are scouting this match, based on driver station position.",
-          "type": "select",
-          "required": true,
-          "code": "robot",
-          "formResetBehavior": "preserve",
-          "defaultValue": "R1",
-          "choices": {
-            "R1": "Red 1",
-            "R2": "Red 2",
-            "R3": "Red 3",
-            "B1": "Blue 1",
-            "B2": "Blue 2",
-            "B3": "Blue 3"
-          }
-        },
-        {
           "title": "Team Number",
           "description": "The team number of the robot you're scouting.",
           "type": "number",
@@ -119,19 +102,6 @@
             "R1": "Left",
             "R2": "Middle",
             "R3": "Right"
-          }
-        },
-        {
-          "title": "Cage Position",
-          "description": "The starting level of the cage",
-          "type": "select",
-          "required": true,
-          "code": "CPos",
-          "formResetBehavior": "reset",
-          "defaultValue": "",
-          "choices": {
-            "D": "Deep",
-            "S": "Shallow"
           }
         }
       ]
@@ -156,17 +126,6 @@
           "code": "Prld",
           "formResetBehavior": "reset",
           "defaultValue": false
-        },
-        {
-          "title": "Pieces Collected",
-          "description": "Pieces collected in auto",
-          "type": "counter",
-          "required": false,
-          "code": "PC",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
         },
         {
           "title": "Coral L1 Scored",
@@ -256,17 +215,6 @@
           "defaultValue": false
         },
         {
-          "title": "Pieces Collected",
-          "description": "Pieces collected in Teleop",
-          "type": "counter",
-          "required": false,
-          "code": "PC",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
           "title": "Coral L1 Scored",
           "description": "The number of level 1 coral scored during autonomous.",
           "type": "counter",
@@ -345,11 +293,24 @@
           "formResetBehavior": "reset",
           "defaultValue": "No",
           "choices": {
-            "N/A": "Not Parked",
+            "No": "Not Parked",
             "P": "Parked",
             "Sc": "Shallow Climb",
             "Dc": "Deep Climb",
             "Fc": "Failed Climb"
+          }
+        },
+        {
+          "title": "Cage Location",
+          "type": "select",
+          "required": true,
+          "code": "cal",
+          "formResetBehavior": "reset",
+          "defaultValue": "No",
+          "choices": {
+            "1": "Closest to Edge",
+            "2": "Middle",
+            "3": "Closest to Center Field"
           }
         }
       ]
@@ -358,6 +319,20 @@
       "name": "Postmatch Q/A",
       "fields": [
         {
+          "title": "Processor or Barge preference?",
+          "type": "select",
+          "required": true,
+          "code": "pn",
+          "formResetBehavior": "reset",
+          "defaultValue": "Neither",
+          "choices": {
+            "Neither": "Neither",
+            "Barge": "Barge",
+            "Processor": "Processor",
+            "Both": "Both"
+          }
+        },
+        {
           "title": "Pickup preference",
           "type": "select",
           "required": false,
@@ -365,10 +340,10 @@
           "formResetBehavior": "reset",
           "defaultValue": "",
           "choices": {
-            "N": "None",
-            "G": "Ground",
-            "HP": "Human Player Station",
-            "B": "Both"
+            "1": "None",
+            "2": "Ground",
+            "3": "Human Player Station",
+            "4": "Both"
           },
           "multiSelect": true
         },
@@ -390,11 +365,12 @@
         },
         {
           "title": "Touched Opposing Cage (Penalties)?",
-          "type": "boolean",
+          "type": "counter",
           "required": false,
           "code": "Fou/Tech",
           "formResetBehavior": "reset",
-          "defaultValue": false
+          "defaultValue": 0,
+          "step": 1
         },
         {
           "title": "Comments",
