@@ -319,20 +319,6 @@
       "name": "Postmatch Q/A",
       "fields": [
         {
-          "title": "Processor or Barge preference?",
-          "type": "select",
-          "required": true,
-          "code": "pn",
-          "formResetBehavior": "reset",
-          "defaultValue": "Neither",
-          "choices": {
-            "Neither": "Neither",
-            "Barge": "Barge",
-            "Processor": "Processor",
-            "Both": "Both"
-          }
-        },
-        {
           "title": "Pickup preference",
           "type": "select",
           "required": false,
