@@ -326,10 +326,10 @@
           "formResetBehavior": "reset",
           "defaultValue": "",
           "choices": {
-            "1": "None",
-            "2": "Ground",
-            "3": "Human Player Station",
-            "4": "Both"
+            "N": "None",
+            "G": "Ground",
+            "H": "Human Player Station",
+            "B": "Both"
           },
           "multiSelect": true
         },
