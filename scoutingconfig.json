@@ -1,6 +1,6 @@
 {
   "title": "QRScout",
-  "page_title": "Reefscape",
+  "page_title": "Reefscape - WINDSOR",
   "delimiter": "\t",
   "teamNumber": 4907,
   "theme": {
@@ -111,7 +111,7 @@
       "fields": [
         {
           "title": "Moved?",
-          "description": "Check if the robot moved during autonomous.",
+          "description": "Check if the robot moved off the black line during autonomous. Can be backwards or forwards",
           "type": "boolean",
           "required": false,
           "code": "Mved",
@@ -119,8 +119,8 @@
           "defaultValue": false
         },
         {
-          "title": "Preloaded Coral?",
-          "description": "Check if the robot had a preloaded game piece",
+          "title": "Preloaded Coral SCORED",
+          "description": "Check if the robot had a preloaded game piece AND SCORED IT",
           "type": "boolean",
           "required": false,
           "code": "Prld",
@@ -129,7 +129,7 @@
         },
         {
           "title": "Coral L1 Scored",
-          "description": "The number of level 1 coral scored during autonomous.",
+          "description": "The number of level 1 coral (flat part/shelf) scored during autonomous.",
           "type": "counter",
           "required": false,
           "code": "CLOA",
@@ -140,7 +140,7 @@
         },
         {
           "title": "Coral L2 Scored",
-          "description": "The number of level 2 coral scored during autonomous.",
+          "description": "The number of level 2 coral (lowest tube) scored during autonomous.",
           "type": "counter",
           "required": false,
           "code": "CLTA",
@@ -151,7 +151,7 @@
         },
         {
           "title": "Coral L3 Scored",
-          "description": "The number of level 3 coral scored during autonomous.",
+          "description": "The number of level 3 coral (second highest) scored during autonomous.",
           "type": "counter",
           "required": false,
           "code": "CLThA",
@@ -162,7 +162,7 @@
         },
         {
           "title": "Coral L4 Scored",
-          "description": "The number of level 4 coral scored during autonomous.",
+          "description": "The number of level 4 coral (highest) scored during autonomous.",
           "type": "counter",
           "required": false,
           "code": "CLFA",
@@ -173,7 +173,7 @@
         },
         {
           "title": "Barge Algae Scored",
-          "description": "The number of Algae scored in the barge during autonomous.",
+          "description": "The number of Algae scored in the barge (in net) during autonomous.",
           "type": "counter",
           "required": false,
           "code": "BASA",
@@ -184,7 +184,7 @@
         },
         {
           "title": "Processor Algae Scored",
-          "description": "The number of Algae scored in the processor during autonomous.",
+          "description": "The number of Algae scored in the processor (on ground) during autonomous.",
           "type": "counter",
           "required": false,
           "code": "PASA",
@@ -216,7 +216,7 @@
         },
         {
           "title": "Coral L1 Scored",
-          "description": "The number of level 1 coral scored during autonomous.",
+          "description": "The number of level 1 coral (flat part/shelf) scored during Teleop.",
           "type": "counter",
           "required": false,
           "code": "CLOT",
@@ -227,7 +227,7 @@
         },
         {
           "title": "Coral L2 Scored",
-          "description": "The number of level 2 coral scored during autonomous.",
+          "description": "The number of level 2 (lowest tube) coral scored during Teleop.",
           "type": "counter",
           "required": false,
           "code": "CLTT",
@@ -238,7 +238,7 @@
         },
         {
           "title": "Coral L3 Scored",
-          "description": "The number of level 3 coral scored during autonomous.",
+          "description": "The number of level 3 (second highest) coral scored during Teleop.",
           "type": "counter",
           "required": false,
           "code": "CLThT",
@@ -249,7 +249,7 @@
         },
         {
           "title": "Coral L4 Scored",
-          "description": "The number of level 4 coral scored during autonomous.",
+          "description": "The number of level 4 (highest) coral scored during Teleop.",
           "type": "counter",
           "required": false,
           "code": "CLFT",
@@ -260,7 +260,7 @@
         },
         {
           "title": "Barge Algae Scored",
-          "description": "The number of Algae scored in the barge during autonomous.",
+          "description": "The number of Algae scored in the barge (in net) during Teleop.",
           "type": "counter",
           "required": false,
           "code": "BAST",
@@ -271,7 +271,7 @@
         },
         {
           "title": "Processor Algae Scored",
-          "description": "The number of Algae scored in the processor during autonomous.",
+          "description": "The number of Algae scored in the processor (on ground) during Teleop.",
           "type": "counter",
           "required": false,
           "code": "PAST",
@@ -303,10 +303,10 @@
         {
           "title": "Cage Location",
           "type": "select",
-          "required": true,
+          "required": false,
           "code": "cal",
           "formResetBehavior": "reset",
-          "defaultValue": "No",
+          "defaultValue": "N/A",
           "choices": {
             "1": "Closest to Edge",
             "2": "Middle",
@@ -366,7 +366,7 @@
           "formResetBehavior": "reset",
           "defaultValue": "",
           "min": 0,
-          "max": 50
+          "max": 300
         }
       ]
     }
