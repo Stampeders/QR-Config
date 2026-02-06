@@ -1,8 +1,12 @@
 {
-  "title": "QRScouts",
-  "page_title": "Reefscape - WINDSOR",
+  "title": "QRScout",
+  "page_title": "Rebuilt - McMaster",
   "delimiter": "\t",
   "teamNumber": 4907,
+  "floatingField": {
+    "show": false,
+    "codeValue": "teamNumber"
+  },
   "theme": {
     "light": {
       "background": "0 0% 100%",
@@ -99,9 +103,9 @@
           "formResetBehavior": "reset",
           "defaultValue": "",
           "choices": {
-            "R1": "Left",
+            "R1": "Outpost Side",
             "R2": "Middle",
-            "R3": "Right"
+            "R3": "Depot Side"
           }
         }
       ]
@@ -111,7 +115,7 @@
       "fields": [
         {
           "title": "Moved?",
-          "description": "Check if the robot moved off the black line during autonomous. Can be backwards or forwards",
+          "description": "Check if the robot moved during autonomous.",
           "type": "boolean",
           "required": false,
           "code": "Mved",
@@ -119,87 +123,39 @@
           "defaultValue": false
         },
         {
-          "title": "Preloaded Coral SCORED",
-          "description": "Check if the robot had a preloaded game piece AND SCORED IT",
-          "type": "boolean",
-          "required": false,
-          "code": "Prld",
-          "formResetBehavior": "reset",
-          "defaultValue": false
-        },
-        {
-          "title": "Coral L1 Scored",
-          "description": "The number of level 1 coral (flat part/shelf) scored during autonomous.",
+          "title": "Fuel missed",
+          "description": "The amount of fuel missed in auto",
           "type": "counter",
           "required": false,
-          "code": "CLOA",
+          "code": "FIA",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 5
+        },
+        {
+          "title": "Climbed Tower",
+          "description": "Did the robot climb?",
+          "type": "select",
+          "required": false,
+          "code": "climbedAuto",
+          "formResetBehavior": "reset",
+          "defaultValue": "No",
+          "choices": {
+            "No": "Didn't Climb",
+            "L1": "Level 1",
+            "F": "Failed Climb"
+          }
+        },
+        {
+          "title": "Auto Foul",
+          "type": "counter",
+          "required": false,
+          "code": "auf",
           "formResetBehavior": "reset",
           "defaultValue": 0,
           "min": 0,
           "step": 1
-        },
-        {
-          "title": "Coral L2 Scored",
-          "description": "The number of level 2 coral (lowest tube) scored during autonomous.",
-          "type": "counter",
-          "required": false,
-          "code": "CLTA",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Coral L3 Scored",
-          "description": "The number of level 3 coral (second highest) scored during autonomous.",
-          "type": "counter",
-          "required": false,
-          "code": "CLThA",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Coral L4 Scored",
-          "description": "The number of level 4 coral (highest) scored during autonomous.",
-          "type": "counter",
-          "required": false,
-          "code": "CLFA",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Barge Algae Scored",
-          "description": "The number of Algae scored in the barge (in net) during autonomous.",
-          "type": "counter",
-          "required": false,
-          "code": "BASA",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Processor Algae Scored",
-          "description": "The number of Algae scored in the processor (on ground) during autonomous.",
-          "type": "counter",
-          "required": false,
-          "code": "PASA",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Dislodged Algae?",
-          "type": "boolean",
-          "required": false,
-          "code": "dto",
-          "formResetBehavior": "reset",
-          "defaultValue": false
         }
       ]
     },
@@ -207,78 +163,45 @@
       "name": "Teleop",
       "fields": [
         {
-          "title": "Dislodged Algae?",
+          "title": "Robot Fuel Missed",
+          "description": "The amount of fuel missed in teleop (by the robot)",
+          "type": "counter",
+          "required": false,
+          "code": "FIT",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Robot Lob Shots",
+          "description": "The number of times a robot shoots a lob shot",
+          "type": "counter",
+          "required": false,
+          "code": "LF",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Human Fuel Scored",
+          "description": "The amount of fuel scored directly by the human player",
+          "type": "counter",
+          "required": false,
+          "code": "HFS",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Played Defense?",
           "type": "boolean",
           "required": false,
-          "code": "daT",
+          "code": "CFPDT",
           "formResetBehavior": "reset",
           "defaultValue": false
-        },
-        {
-          "title": "Coral L1 Scored",
-          "description": "The number of level 1 coral (flat part/shelf) scored during Teleop.",
-          "type": "counter",
-          "required": false,
-          "code": "CLOT",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Coral L2 Scored",
-          "description": "The number of level 2 (lowest tube) coral scored during Teleop.",
-          "type": "counter",
-          "required": false,
-          "code": "CLTT",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Coral L3 Scored",
-          "description": "The number of level 3 (second highest) coral scored during Teleop.",
-          "type": "counter",
-          "required": false,
-          "code": "CLThT",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Coral L4 Scored",
-          "description": "The number of level 4 (highest) coral scored during Teleop.",
-          "type": "counter",
-          "required": false,
-          "code": "CLFT",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Barge Algae Scored",
-          "description": "The number of Algae scored in the barge (in net) during Teleop.",
-          "type": "counter",
-          "required": false,
-          "code": "BAST",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
-        },
-        {
-          "title": "Processor Algae Scored",
-          "description": "The number of Algae scored in the processor (on ground) during Teleop.",
-          "type": "counter",
-          "required": false,
-          "code": "PAST",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
         }
       ]
     },
@@ -286,60 +209,19 @@
       "name": "Endgame",
       "fields": [
         {
-          "title": "End Position",
+          "title": "Climbed Tower",
           "type": "select",
           "required": true,
-          "code": "epo",
+          "code": "climbed",
           "formResetBehavior": "reset",
           "defaultValue": "No",
           "choices": {
-            "No": "Not Parked",
-            "P": "Parked",
-            "Sc": "Shallow Climb",
-            "Dc": "Deep Climb",
-            "Fc": "Failed Climb"
+            "No": "Didn't Climb",
+            "L1": "Level 1",
+            "L2": "Level 2",
+            "L3": "Level 3",
+            "F": "Failed Climb"
           }
-        },
-        {
-          "title": "Cage Location",
-          "type": "select",
-          "required": false,
-          "code": "cal",
-          "formResetBehavior": "reset",
-          "defaultValue": "N/A",
-          "choices": {
-            "1": "Closest to Edge",
-            "2": "Middle",
-            "3": "Closest to Center Field"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Postmatch Q/A",
-      "fields": [
-        {
-          "title": "Pickup preference",
-          "type": "select",
-          "required": false,
-          "code": "TGPL",
-          "formResetBehavior": "reset",
-          "defaultValue": "",
-          "choices": {
-            "N": "None",
-            "G": "Ground",
-            "H": "Human Player Station",
-            "B": "Both"
-          },
-          "multiSelect": true
-        },
-        {
-          "title": "Crossed Field/Played Defense?",
-          "type": "boolean",
-          "required": false,
-          "code": "CFPDT",
-          "formResetBehavior": "reset",
-          "defaultValue": false
         },
         {
           "title": "Tipped/Fell Over?",
@@ -348,25 +230,59 @@
           "code": "TFOT",
           "formResetBehavior": "reset",
           "defaultValue": false
+        }
+      ]
+    },
+    {
+      "name": "Postmatch",
+      "fields": [
+        {
+          "title": "Intake",
+          "description": "How did the robot intake?",
+          "type": "select",
+          "required": true,
+          "code": "robotIntake",
+          "formResetBehavior": "reset",
+          "defaultValue": "No",
+          "choices": {
+            "G": "Ground",
+            "O": "Outpost",
+            "U": "Unsure"
+          }
         },
         {
-          "title": "Touched Opposing Cage (Penalties)?",
-          "type": "counter",
-          "required": false,
-          "code": "Fou/Tech",
+          "title": "Over/Under?",
+          "type": "select",
+          "required": true,
+          "code": "over/under",
           "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "step": 1
+          "defaultValue": "No",
+          "choices": {
+            "O": "Over the Bump",
+            "U": "Under the Trench",
+            "B": "Both",
+            "N": "Neither"
+          }
+        },
+        {
+          "title": "Field Layout",
+          "description": "Reference diagram of the field",
+          "type": "image",
+          "required": false,
+          "code": "fieldLayout",
+          "formResetBehavior": "preserve",
+          "defaultValue": "https://raw.githubusercontent.com/wpilibsuite/allwpilib/refs/heads/main/fieldImages/src/main/native/resources/edu/wpi/first/fields/2026-field.png"
         },
         {
           "title": "Comments",
+          "description": "Where are they shooting from? \n Go to the depot in auto? \n Did they play defence? \n Human player accuracy? \n Robot stability? Tippy? Stable? \n Penalties? [code] \n Shots in inactive hub (count as miss) \n Getting beached? \n Tank or swerve? \n Interesting mechanisms/shapes?",
           "type": "text",
-          "required": false,
+          "required": true,
           "code": "co",
           "formResetBehavior": "reset",
           "defaultValue": "",
           "min": 0,
-          "max": 300
+          "max": 500
         }
       ]
     }
