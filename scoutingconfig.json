@@ -131,7 +131,7 @@
           "formResetBehavior": "reset",
           "defaultValue": 0,
           "min": 0,
-          "step": 5
+          "step": 1
         },
         {
           "title": "Climbed Tower",
