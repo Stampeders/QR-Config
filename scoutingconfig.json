@@ -114,6 +114,15 @@
       "name": "Autonomous",
       "fields": [
         {
+          "title": "Fuel Missed",
+          "description": "Approximate fuel MISSED during autonomous.",
+          "type": "multi-counter",
+          "required": false,
+          "code": "autoFuelmissed",
+          "formResetBehavior": "reset",
+          "defaultValue": 0
+        },
+        {
           "title": "Moved?",
           "description": "Check if the robot moved during autonomous.",
           "type": "boolean",
@@ -121,17 +130,6 @@
           "code": "Mved",
           "formResetBehavior": "reset",
           "defaultValue": false
-        },
-        {
-          "title": "Fuel missed",
-          "description": "The amount of fuel missed in auto",
-          "type": "counter",
-          "required": false,
-          "code": "FIA",
-          "formResetBehavior": "reset",
-          "defaultValue": 0,
-          "min": 0,
-          "step": 1
         },
         {
           "title": "Auto Climbed Tower",
