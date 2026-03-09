@@ -217,6 +217,14 @@
           "code": "CFPDT",
           "formResetBehavior": "reset",
           "defaultValue": false
+        },
+        {
+          "title": "Feeded Human Player?",
+          "type": "boolean",
+          "required": false,
+          "code": "feededHumanPlayer",
+          "formResetBehavior": "reset",
+          "defaultValue": false
         }
       ]
     },
