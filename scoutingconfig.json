@@ -134,17 +134,32 @@
           "step": 1
         },
         {
-          "title": "Climbed Tower",
-          "description": "Did the robot climb?",
+          "title": "Auto Climbed Tower",
+          "type": "select",
+          "required": true,
+          "code": "Auto Climbed Tower",
+          "formResetBehavior": "reset",
+          "defaultValue": "",
+          "choices": {
+            "1": "Level 1",
+            "2": "Level 2",
+            "3": "Level 3",
+            "No": "Didn't Climb",
+            "F": "Failed Climb",
+            " ": "Unsure"
+          }
+        },
+        {
+          "title": "Auto Climb Side",
           "type": "select",
           "required": false,
-          "code": "climbedAuto",
+          "code": "Auto Climb Side",
           "formResetBehavior": "reset",
-          "defaultValue": "No",
+          "defaultValue": "",
           "choices": {
-            "No": "Didn't Climb",
-            "L1": "Level 1",
-            "F": "Failed Climb"
+            "L": "Depot Side (Left)",
+            "R": "Outpost Side (Right)",
+            " ": "Unsure"
           }
         },
         {
@@ -209,18 +224,32 @@
       "name": "Endgame",
       "fields": [
         {
-          "title": "Climbed Tower",
+          "title": "Endgame Climbed Tower",
           "type": "select",
           "required": true,
-          "code": "climbed",
+          "code": "Endgame Climbed Tower",
           "formResetBehavior": "reset",
-          "defaultValue": "No",
+          "defaultValue": "",
           "choices": {
+            "1": "Level 1",
+            "2": "Level 2",
+            "3": "Level 3",
             "No": "Didn't Climb",
-            "L1": "Level 1",
-            "L2": "Level 2",
-            "L3": "Level 3",
-            "F": "Failed Climb"
+            "F": "Failed Climb",
+            " ": "Unsure"
+          }
+        },
+        {
+          "title": "Endgame Climb Side",
+          "type": "select",
+          "required": false,
+          "code": "Endgame Climb Side",
+          "formResetBehavior": "reset",
+          "defaultValue": "",
+          "choices": {
+            "L": "Depot Side (Left)",
+            "R": "Outpost Side (Right)",
+            " ": "Unsure"
           }
         },
         {
@@ -243,11 +272,11 @@
           "required": true,
           "code": "robotIntake",
           "formResetBehavior": "reset",
-          "defaultValue": "No",
+          "defaultValue": " ",
           "choices": {
             "G": "Ground",
             "O": "Outpost",
-            "U": "Unsure"
+            " ": "Unsure"
           }
         },
         {
@@ -263,15 +292,6 @@
             "B": "Both",
             "N": "Neither"
           }
-        },
-        {
-          "title": "Field Layout",
-          "description": "Reference diagram of the field",
-          "type": "image",
-          "required": false,
-          "code": "fieldLayout",
-          "formResetBehavior": "preserve",
-          "defaultValue": "https://raw.githubusercontent.com/wpilibsuite/allwpilib/refs/heads/main/fieldImages/src/main/native/resources/edu/wpi/first/fields/2026-field.png"
         },
         {
           "title": "Comments",
